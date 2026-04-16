@@ -1,0 +1,17 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      - app-data:/app/data
+      - ./docs:/app/docs
+    environment:
+      - DATABASE_PATH=/app/data/frontdesk.db
+      - HANDBOOK_PATH=/app/backend/handbook
+      - DOCUMENTS_PATH=/app/docs
+
+volumes:
+  app-data:
